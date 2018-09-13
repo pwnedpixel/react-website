@@ -1,0 +1,35 @@
+.terminal-body {
+    background-color: #272822 !important;
+    border-top: none !important;
+    color: white !important;
+    height: 400px !important;
+    position: relative !important;
+    text-align: left !important;
+    overflow-y: scroll;
+}
+
+.terminal-container {
+    display: block;
+    font-family: monospace !important;
+}
+
+.terminal-header {
+    background: #7c7c7c !important;
+    text-align: left;
+    color: white !important;
+    border-bottom: none !important;
+    font-family: monospace !important;
+}
+
+.terminal-input {
+    color: white !important;
+}
+
+input {
+    color: white !important;
+    font-family: monospace !important;
+}
+
+.command-output {
+    margin: 2px;
+}
