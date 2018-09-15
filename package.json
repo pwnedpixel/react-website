@@ -9,9 +9,9 @@
     "semantic-ui-react": "^0.82.4"
   },
   "scripts": {
-    "start-server": "react-scripts-ts start",
+    "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
-	  "start": "node server.js",
+	  "start-server": "node server.js",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject"
   },

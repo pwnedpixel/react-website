@@ -1,11 +1,32 @@
+.preload {
+    animation-duration: 0s !important;
+    -webkit-animation-duration: 0s !important;
+    transition: background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;
+}
+
 .terminal-body {
     background-color: #272822 !important;
     border-top: none !important;
     color: white !important;
-    height: 450px !important;
     position: relative !important;
     text-align: left !important;
     overflow-y: scroll;
+}
+
+.terminal-default {
+    height: 500px !important;
+}
+
+.terminal-body-collapsed {
+    height: 500px !important;
+    animation-name: collapse-terminal;
+    animation-duration: 0.5s;
+}
+
+.terminal-body-expanded {
+    height: 80vh !important;
+    animation-name: expand-terminal;
+    animation-duration: 0.5s;
 }
 
 .terminal-container {
@@ -39,6 +60,51 @@ input {
     color: lightgreen;
 }
 
+.bold {
+    font-weight: bolder
+}
+
 .blue {
     color: lightblue;
+}
+
+.white {
+    color: white;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.bullet {
+    margin-left: 10px;
+}
+
+.right {
+    float: right;
+    margin-right: 200px;
+}
+
+#expand-button {
+    margin-top: 5px;
+}
+
+@keyframes expand-terminal {
+    from {
+        height: 500px;
+    }
+
+    to {
+        height: 80vh;
+    }
+}
+
+@keyframes collapse-terminal {
+    from {
+        height: 80vh;
+    }
+
+    to {
+        height: 500px;
+    }
 }
