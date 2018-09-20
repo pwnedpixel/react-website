@@ -125,8 +125,8 @@ class Terminal extends React.Component<any, ITerminalState> {
 
             <span className="bold">TD Bank: Software Development Intern: </span> <span className="right">May 2017-August 2018</span><br />
             <span className="bullet">•	Developer as part of a SCRUM pod, gained familiarity with Agile and participating in SCRUM ceremonies</span><br />
-            <span className="bullet">•	Full stack web development. Angular + redux front-end, java spring + MSSQL backend, running on JBoss 6.4 </span><br />
-            <span className="bullet">•	Gained familiarity using maven for dependency/lifecycle management</span><br /><br />
+            <span className="bullet">•	Full stack web development. Angular + redux front-end, java spring + maven + MSSQL backend, running on JBoss 6.4 Application servers </span><br />
+            <span className="bullet">•	Deployed dev builds to cloud environments. Gained experience unit testing testing with JUnit and Jasmine</span><br /><br />
             
             <span className="bold">Stratitgy Solutions: SalesForce Integration Developer </span> <span className="right">December 2017-August 2018</span><br />
             <span className="bullet">•	Worked on a consulting team helping clients integrate their current systems and data with SalesForce</span><br />
