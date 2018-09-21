@@ -19,27 +19,27 @@ const Links = () => (
         <List.Icon name="github" size="large" verticalAlign="middle" />
         <List.Content>
           <List.Header as="a" target="_blank" href="https://github.com/pwnedpixel">
-            github.com/pwnedpixel
+            Github
           </List.Header>
-          <List.Description as="a">My GitHub Profile</List.Description>
+          {/* <List.Description as="a">My GitHub Profile</List.Description> */}
         </List.Content>
       </List.Item>
       <List.Item>
         <List.Icon name="folder open" size="large" verticalAlign="middle" />
         <List.Content>
           <List.Header as="a" target="_blank" href="https://devpost.com/pwnedpixel">
-            devpost.com/pwnedpixel
+            Hackathon Projects
           </List.Header>
-          <List.Description as="a">Hackathon Projects!</List.Description>
+          {/* <List.Description as="a">Hackathon Projects!</List.Description> */}
         </List.Content>
       </List.Item>
       <List.Item>
         <List.Icon name="linkedin" size="large" verticalAlign="middle" />
         <List.Content>
           <List.Header as="a" target="_blank" href="https://www.linkedin.com/in/arkeech/">
-            linkedin.com/in/arkeech
+            Connect on LinkedIn
           </List.Header>
-          <List.Description as="a">Connect on Linked</List.Description>
+          {/* <List.Description as="a">Connect on Linkedin</List.Description> */}
         </List.Content>
       </List.Item>
     </List>

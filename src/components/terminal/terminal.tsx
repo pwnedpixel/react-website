@@ -36,14 +36,14 @@ class Terminal extends React.Component<any, ITerminalState> {
         <Header attached="top" className="terminal-header">
           AK Term
         </Header>
-        <Segment animated={'true'} onClick={this.focus} raised={true} attached={true} className={(this.state.hasBeenExpanded?(this.state.isTerminalExtended ? "terminal-body-expanded" : "terminal-body-collapsed"):"terminal-default") + " terminal-body"}>
+        <Segment id="terminal-body" animated={'true'} onClick={this.focus} raised={true} attached={true} className={(this.state.hasBeenExpanded?(this.state.isTerminalExtended ? "terminal-body-expanded" : "terminal-body-collapsed"):"terminal-default") + " terminal-body"}>
         <span className={this.state.hasBeenCleared?"hide":""}>Type "help" for a list of commands</span>
           {this.state.enteredCommands.map((command, index) => (
             <div className="command-output" key={index}>
               {this.evaluateInput(command)}
             </div>
           ))}
-          <Input autoFocus={true} ref={this.inputElement} icon="angle right" iconPosition="left" fluid={true} value={this.state.currentInput} onChange={this.handleChange} onKeyPress={this.handleKeyPress} className="terminal-input" transparent={true} placeholder="input command here" />
+          <Input id="terminal-input" autoFocus={true} ref={this.inputElement} icon="angle right" iconPosition="left" fluid={true} value={this.state.currentInput} onChange={this.handleChange} onKeyPress={this.handleKeyPress} className="terminal-input" transparent={true} placeholder="input command here" />
         </Segment>
         {expandButton}
       </Container>
@@ -67,6 +67,13 @@ class Terminal extends React.Component<any, ITerminalState> {
       console.log("do validate: " + this.state.currentInput);
       this.state.enteredCommands.push(this.state.currentInput);
       this.setState({ currentInput: "" });
+      
+      // Scroll to bottom after updating
+      setTimeout(() => {
+        console.log("scroll to top");
+        const textarea = document.getElementById('terminal-body');
+        textarea.scrollTop = textarea.scrollHeight;
+      });
     }
   };
 
@@ -164,10 +171,6 @@ class Terminal extends React.Component<any, ITerminalState> {
             <span className="bullet">•	Top 6 at DeltaHacks 3, out of 50 teams (Hackathon)</span><br />
             <span className="bullet">•	Created a voice controlled budgeting assistant for Android</span><br />
             <span className="bullet">•	Could keep track of budget categories and spending amounts.</span><br /><br />
-
-
-
-
 
           </Container>
         );
