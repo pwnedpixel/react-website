@@ -6,8 +6,9 @@ interface ITerminalState {
   enteredCommands: string[],
   currentInput: string,
   isTerminalExtended: boolean,
-  hasBeenExpanded: boolean
-  isLoaded: boolean
+  hasBeenExpanded: boolean,
+  isLoaded: boolean,
+  hasBeenCleared: boolean
 }
 
 class Terminal extends React.Component<any, ITerminalState> {
@@ -15,7 +16,7 @@ class Terminal extends React.Component<any, ITerminalState> {
 
   constructor(props: any) {
     super(props);
-    this.state = { enteredCommands: [], currentInput: "", isTerminalExtended: false, isLoaded: false, hasBeenExpanded: false };
+    this.state = { enteredCommands: [], currentInput: "", isTerminalExtended: false, isLoaded: false, hasBeenExpanded: false, hasBeenCleared: false };
     this.handleChange = this.handleChange.bind(this);
     this.inputElement = React.createRef();
     this.focus = this.focus.bind(this);
@@ -35,7 +36,8 @@ class Terminal extends React.Component<any, ITerminalState> {
         <Header attached="top" className="terminal-header">
           AK Term
         </Header>
-        <Segment animated={true} onClick={this.focus} raised={true} attached={true} className={(this.state.hasBeenExpanded?(this.state.isTerminalExtended ? "terminal-body-expanded" : "terminal-body-collapsed"):"terminal-default") + " terminal-body"}>
+        <Segment animated={'true'} onClick={this.focus} raised={true} attached={true} className={(this.state.hasBeenExpanded?(this.state.isTerminalExtended ? "terminal-body-expanded" : "terminal-body-collapsed"):"terminal-default") + " terminal-body"}>
+        <span className={this.state.hasBeenCleared?"hide":""}>Type "help" for a list of commands</span>
           {this.state.enteredCommands.map((command, index) => (
             <div className="command-output" key={index}>
               {this.evaluateInput(command)}
@@ -86,7 +88,7 @@ class Terminal extends React.Component<any, ITerminalState> {
           </Container>
         );
       case "clear":
-        this.setState({ enteredCommands: [] });
+        this.setState({ enteredCommands: [], hasBeenCleared: true });
         break;
       case "clr":
         this.setState({ enteredCommands: [] });
