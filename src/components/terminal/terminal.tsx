@@ -151,22 +151,26 @@ class Terminal extends React.Component<any, ITerminalState> {
 
             <span className="bold">Chord Base: </span><br />
             <span className="bullet">•	Built a website that allowed users to upload and create guitar chord for their favourite music</span><br />
-            <span className="bullet">•	Made use of the MERN stack, allowed users to create accounts and login to store private creations.</span><br /><br/>
+            <span className="bullet">•	Made use of the MERN stack, allowed users to create accounts and login to store private creations.</span><br />
+            <span className="bullet">•	Technologies used: MongoDB, Express, React and node</span><br /><br />
          
             <span className="bold">Braille Printer: </span><br />
             <span className="bullet">•	First place winner of Hack Western 3, out of 90 teams (Hackathon)</span><br />
             <span className="bullet">•	Involved Software/Hardware design and implementation. </span><br />
-            <span className="bullet">•	Used servos and actuators to create braille bumps on pieces of paper. input could be in the form of text or an image</span><br /><br />
+            <span className="bullet">•	Used servos and actuators to create braille bumps on pieces of paper. input could be in the form of text or an image</span><br />
+            <span className="bullet">•	Technologies used: RaspberryPi, circuit boards, python, image recognition</span><br /><br />
 
             <span className="bold">Green Waste Bin: </span><br />
             <span className="bullet">•	Second place winner of QHacks 2017, out of 80 teams (Hackathon)</span><br />
             <span className="bullet">•	Created a device that could differentiate between garbage and recyclable materials and sort them </span><br />
-            <span className="bullet">•	Image recognition and machine learning were used to classify the items placed in the device. servos then sorted the items</span><br /><br />
+            <span className="bullet">•	Image recognition and machine learning were used to classify the items placed in the device. servos then sorted the items</span><br />
+            <span className="bullet">•	Technologies used: servos, raspberryPi, image recognition, machine learning, AWS, react, node</span><br /><br />
 
             <span className="bold">Voice of Reason: </span><br />
             <span className="bullet">•	Top 6 at DeltaHacks 3, out of 50 teams (Hackathon)</span><br />
             <span className="bullet">•	Created a voice controlled budgeting assistant for Android</span><br />
-            <span className="bullet">•	Could keep track of budget categories and spending amounts.</span><br /><br />
+            <span className="bullet">•	Could keep track of budget categories and spending amounts.</span><br />
+            <span className="bullet">•	Technologies used: Android (Java), voice recognition</span><br /><br />
 
             <span className="underline bold-green">Awards</span><br />
             <span className="bullet">•	Best User Experience | RUHacks 2018</span><br />
