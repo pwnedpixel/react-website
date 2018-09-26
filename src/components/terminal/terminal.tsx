@@ -84,7 +84,8 @@ class Terminal extends React.Component<any, ITerminalState> {
           <Container>
             > {input} <br />
             <span className="bold-green">Email:</span> Andy@akeech.com <br />
-            <span className="bold-green">Phone:</span> (226) 236-6662
+            <span className="bold-green">Phone:</span> (226) 236-6662 <br />
+            <span className="bold-green">LinkedIn:</span> <a target="_blank" href="https://www.linkedin.com/in/arkeech">linkedin.com/in/arkeech</a>
           </Container>
         );
       case "help":
@@ -119,50 +120,45 @@ class Terminal extends React.Component<any, ITerminalState> {
             <span className="bullet">•	Fluently Bilingual in French and English (spoken & written), Dual secondary French/English diploma</span><br /><br />
 
 
-            <span className="underline bold-green">Technical Experiece:</span><br />
+            <span className="underline bold-green">Languagues and Technical Skills (in order of proficiency)</span><br />
 
-            <span className="bullet">•	Github Profile: </span><a target="_blank" href="https://github.com/pwnedpixel">github.com/pwnedpixel</a><br />
-            <span className="bullet">•	Proficient in Java and have experience with maven and JBoss</span><br />
-            <span className="bullet">•	Web development with Node, Angular 4/5, react, Javascript/Typescript</span><br />
-            <span className="bullet">•	Experience working in a SCRUM pod as a developer</span><br />
-            <span className="bullet">•	Experience in C#, C++ and spring Rest APIs</span><br />
-            <span className="bullet">•	Familiarity programming in Python and Assembly (HC12, 8080)</span><br />
-            <span className="bullet">•	Proficient in VHDL using Altera Quartus and ModelSim</span><br /><br />
-
+            <span className="bullet">Github Profile: </span><a target="_blank" href="https://github.com/pwnedpixel">github.com/pwnedpixel</a><br />
+            <span className="bullet">•	Java</span><br />
+            <span className="bullet">•	HTML/CSS/JS</span><br />
+            <span className="bullet">•	Angular 4/5</span><br />
+            <span className="bullet">•	SCRUM/Agile</span><br />
+            <span className="bullet">•	Git</span><br />
+            <span className="bullet">•	Python</span><br />
+            <span className="bullet">•	Maven</span><br />
+            <span className="bullet">•	JBoss</span><br />
+            <span className="bullet">•	React</span><br />
+            <span className="bullet">•	Assembly (HC12 & 8080)</span><br />
+            <span className="bullet">•	C#, C</span><br />
             
             <span className="underline bold-green">Work Experience:</span><br />
 
             <span className="bold">TD Bank: Software Development Intern: </span> <span className="right">May 2017-August 2018</span><br />
             <span className="bullet">•	Developer as part of a SCRUM pod, gained familiarity with Agile and participating in SCRUM ceremonies</span><br />
-            <span className="bullet">•	Full stack web development. Angular + redux front-end, java spring + maven + MSSQL backend, running on JBoss 6.4 Application servers </span><br />
-            <span className="bullet">•	Deployed dev builds to cloud environments. Gained experience unit testing testing with JUnit and Jasmine</span><br /><br />
+            <span className="bullet">•	Used Angular + redux to build web applications. java spring + maven + MSSQL backend, running on JBoss 6.4 Application servers </span><br />
+            <span className="bullet">•	Deployed dev builds to cloud environments. Gained experience unit testing testing with JUnit and Jasmine.</span><br /><br />
             
-            <span className="bold">Stratitgy Solutions: SalesForce Integration Developer </span> <span className="right">December 2017-August 2018</span><br />
+            <span className="bold">StratITgy Solutions: SalesForce Integration Developer </span> <span className="right">December 2017-August 2018</span><br />
             <span className="bullet">•	Worked on a consulting team helping clients integrate their current systems and data with SalesForce</span><br />
             <span className="bullet">•	Created applications to migrate data from SQLServer to Salesforce and maintaining data integrity</span><br /><br />
-           
-            <span className="bold">Sport Western: Fencing Instructor </span> <span className="right">Summer 2014-Summer 2016</span><br />
-            <span className="bullet">•	Fencing instructor, camp counsellor and a group leader for Sport Western, at UWO during the summer</span><br />
-            <span className="bullet">•	Coordinated other instructors and instructed campers in fencing etiquette, skills and techniques</span><br /><br />
-            
-            <span className="bold">Physics Tutor </span> <span className="right">2014-2016</span><br />
-            <span className="bullet">•	Tutor secondary students in math and physics courses</span><br />
-            <span className="bullet">•	MCAT physics section preparation</span><br /><br />
-            
-            <span className="bold">Village of Bayfield Marina </span> <span className="right">Summer 2015</span><br />
-            <span className="bullet">•	Managed services required by transient and local watercraft.</span><br />
-            <span className="bullet">•	Inspected operational equipment to ensure compliance with environmental and local laws and regulations.</span><br /><br />
 
-
-            <span className="underline bold-green">Projects and Awards:</span><br />
+            <span className="underline bold-green">Projects</span><br />
             <span className="bullet">•	Hackathon projects: </span><a target="_blank" href="https://devpost.com/pwnedpixel">devpost.com/pwnedpixel</a><br />
 
+            <span className="bold">Chord Base: </span><br />
+            <span className="bullet">•	Built a website that allowed users to upload and create guitar chord for their favourite music</span><br />
+            <span className="bullet">•	Made use of the MERN stack, allowed users to create accounts and login to store private creations.</span><br /><br/>
+         
             <span className="bold">Braille Printer: </span><br />
             <span className="bullet">•	First place winner of Hack Western 3, out of 90 teams (Hackathon)</span><br />
             <span className="bullet">•	Involved Software/Hardware design and implementation. </span><br />
             <span className="bullet">•	Used servos and actuators to create braille bumps on pieces of paper. input could be in the form of text or an image</span><br /><br />
 
-            <span className="bold">Green Garbage: </span><br />
+            <span className="bold">Green Waste Bin: </span><br />
             <span className="bullet">•	Second place winner of QHacks 2017, out of 80 teams (Hackathon)</span><br />
             <span className="bullet">•	Created a device that could differentiate between garbage and recyclable materials and sort them </span><br />
             <span className="bullet">•	Image recognition and machine learning were used to classify the items placed in the device. servos then sorted the items</span><br /><br />
@@ -171,6 +167,13 @@ class Terminal extends React.Component<any, ITerminalState> {
             <span className="bullet">•	Top 6 at DeltaHacks 3, out of 50 teams (Hackathon)</span><br />
             <span className="bullet">•	Created a voice controlled budgeting assistant for Android</span><br />
             <span className="bullet">•	Could keep track of budget categories and spending amounts.</span><br /><br />
+
+            <span className="underline bold-green">Awards</span><br />
+            <span className="bullet">•	Best User Experience | RUHacks 2018</span><br />
+            <span className="bullet">•	Second Place | QHacks 2017</span><br />
+            <span className="bullet">•	Finalist | DeltaHacks 3 (2017)</span><br />
+            <span className="bullet">•	First Place | HackWestern 3 (2016)</span><br />
+            <span className="bullet">•	Western Scholarship of Excellence</span><br />
 
           </Container>
         );
