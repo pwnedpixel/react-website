@@ -8,7 +8,9 @@ interface ITerminalState {
   isTerminalExtended: boolean,
   hasBeenExpanded: boolean,
   isLoaded: boolean,
-  hasBeenCleared: boolean
+  hasBeenCleared: boolean,
+  loginShowing: boolean,
+  userName: string
 }
 
 class Terminal extends React.Component<any, ITerminalState> {
@@ -16,7 +18,7 @@ class Terminal extends React.Component<any, ITerminalState> {
 
   constructor(props: any) {
     super(props);
-    this.state = { enteredCommands: [], currentInput: "", isTerminalExtended: false, isLoaded: false, hasBeenExpanded: false, hasBeenCleared: false };
+    this.state = { enteredCommands: [], currentInput: "", isTerminalExtended: false, isLoaded: false, hasBeenExpanded: false, hasBeenCleared: false, loginShowing: false, userName: "" };
     this.handleChange = this.handleChange.bind(this);
     this.inputElement = React.createRef();
     this.focus = this.focus.bind(this);
@@ -43,7 +45,7 @@ class Terminal extends React.Component<any, ITerminalState> {
               {this.evaluateInput(command)}
             </div>
           ))}
-          <Input id="terminal-input" autoFocus={true} ref={this.inputElement} icon="angle right" iconPosition="left" fluid={true} value={this.state.currentInput} onChange={this.handleChange} onKeyPress={this.handleKeyPress} className="terminal-input" transparent={true} placeholder="input command here" />
+          {this.inputBox()}
         </Segment>
         {expandButton}
       </Container>
@@ -62,17 +64,42 @@ class Terminal extends React.Component<any, ITerminalState> {
     this.setState({ currentInput: event.target.value });
   }
 
+  private inputBox(): any {
+
+    if (!this.state.loginShowing){
+      return (<Input id="terminal-input" autoFocus={true} ref={this.inputElement} icon="angle right" iconPosition="left" fluid={true} value={this.state.currentInput} onChange={this.handleChange} onKeyPress={this.handleKeyPress} className="terminal-input" transparent={true} placeholder="input command here" />);
+    } else if (this.state.loginShowing && this.state.userName !== "") {
+      return (<Input id="terminal-input" autoFocus={true} ref={this.inputElement}  type="password" fluid={true} value={this.state.currentInput} onChange={this.handleChange} onKeyPress={this.handleKeyPress} className="terminal-input" transparent={true} placeholder="" />);
+    } else {
+      return (<Input id="terminal-input" autoFocus={true} ref={this.inputElement}  fluid={true} value={this.state.currentInput} onChange={this.handleChange} onKeyPress={this.handleKeyPress} className="terminal-input" transparent={true} placeholder="" />);
+    }
+
+  }
+
   private handleKeyPress = (e: any) => {
     if (e.key === "Enter") {
       console.log("do validate: " + this.state.currentInput);
-      this.state.enteredCommands.push(this.state.currentInput);
+      if (this.state.currentInput.toLowerCase() === "login" && !this.state.loginShowing) {
+        this.state.enteredCommands.push(this.state.currentInput);
+        if (this.state.loginShowing === false) {
+          this.setState({loginShowing: true});
+        }
+      } else if(this.state.loginShowing && this.state.userName === "") {
+        this.setState({userName: this.state.currentInput});
+      } else if (this.state.loginShowing && this.state.userName !== "") {
+        console.log ("username: " + this.state.userName + " password: " + this.state.currentInput);
+      } else {
+        this.state.enteredCommands.push(this.state.currentInput);
+      }
       this.setState({ currentInput: "" });
       
       // Scroll to bottom after updating
       setTimeout(() => {
         console.log("scroll to top");
         const textarea = document.getElementById('terminal-body');
-        textarea.scrollTop = textarea.scrollHeight;
+        if (textarea){
+          textarea.scrollTop = textarea.scrollHeight;
+        }
       });
     }
   };
@@ -98,6 +125,25 @@ class Terminal extends React.Component<any, ITerminalState> {
       case "clear":
         this.setState({ enteredCommands: [], hasBeenCleared: true });
         break;
+      case "login":
+        let userName;
+        // let password;
+        if (this.state.userName !== ""){
+          userName =  
+          <div>
+            <span>{this.state.userName}<br /></span>
+            <span>Enter password: <br /></span>
+          </div>
+        } else {
+          userName = <span />
+        }
+        return (
+          <Container>
+            > {input} <br />
+            <span>Enter Username: <br /></span>
+            {userName}
+          </Container>
+        );
       case "clr":
         this.setState({ enteredCommands: [] });
         break;

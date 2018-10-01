@@ -1,20 +1,41 @@
-import * as React from 'react';
-import { Header } from 'semantic-ui-react';
-import './App.css';
+import * as React from "react";
+import { Header } from "semantic-ui-react";
+import "./App.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Terminal from './components/terminal/terminal';
-import Links from './components/links/links';
+import Terminal from "./components/terminal/terminal";
+import Login from "./components/login/login";
+import Links from "./components/links/links";
 
 const App = () => (
-  <div className="App">
-    <Header className="app-header" as='h1'>
+  <Router>
+    <div className="App">
+    <Header className="app-header" as="h1">
+        Links
+      </Header>
+      <Links />
+      <Route exact={true} path="/" component={HomePage} />
+      <Route exact={true} path="/login" component={LoginPage} />
+      
+    </div>
+  </Router>
+);
+
+const HomePage = () => (
+  <div>
+    <Header className="app-header" as="h1">
       Andy Terminal
     </Header>
     <Terminal />
-    <Header className="app-header" as='h1'>
-      Links
+  </div>
+);
+
+const LoginPage = () => (
+  <div>
+    <Header className="app-header" as="h1">
+      Login
     </Header>
-    <Links />
+    <Login />
   </div>
 );
 
