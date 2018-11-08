@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Container, Segment, Header, Input, Button } from "semantic-ui-react";
+import { Container, Segment, Header, Input } from "semantic-ui-react";
 import "./terminal.css";
 
 interface ITerminalState {
@@ -16,7 +16,7 @@ class Terminal extends React.Component<any, ITerminalState> {
 
   constructor(props: any) {
     super(props);
-    this.state = { enteredCommands: [], currentInput: "", isTerminalExtended: false, isLoaded: false, hasBeenExpanded: false, hasBeenCleared: false };
+    this.state = { enteredCommands: props.commands || [], currentInput: "", isTerminalExtended: false, isLoaded: false, hasBeenExpanded: false, hasBeenCleared: false };
     this.handleChange = this.handleChange.bind(this);
     this.inputElement = React.createRef();
     this.focus = this.focus.bind(this);
@@ -24,28 +24,28 @@ class Terminal extends React.Component<any, ITerminalState> {
   }
 
   public render() {
-    let expandButton;
-    if (this.state.isTerminalExtended) {
-      expandButton = <Button id="expand-button" onClick={this.toggleExpanded} content='Collapse' icon='up arrow' labelPosition='right' />
-    } else {
-      expandButton = <Button id="expand-button" onClick={this.toggleExpanded} content='Expand' icon='down arrow' labelPosition='right' />
-    }
+    // let expandButton;
+    // if (this.state.isTerminalExtended) {
+    //   expandButton = <Button id="expand-button" onClick={this.toggleExpanded} content='Collapse' icon='up arrow' labelPosition='right' />
+    // } else {
+    //   expandButton = <Button id="expand-button" onClick={this.toggleExpanded} content='Expand' icon='down arrow' labelPosition='right' />
+    // }
 
     return (
       <Container className={(!this.state.isLoaded?'preload':'') + " terminal-container"}>
         <Header attached="top" className="terminal-header">
           AK Term
         </Header>
-        <Segment id="terminal-body" animated={'true'} onClick={this.focus} raised={true} attached={true} className={(this.state.hasBeenExpanded?(this.state.isTerminalExtended ? "terminal-body-expanded" : "terminal-body-collapsed"):"terminal-default") + " terminal-body"}>
+        <Segment id="terminal-body" animated={'true'} onClick={this.focus} raised={true} attached={true} className={this.props.expandToFit?"terminal-fit terminal-body":(this.state.hasBeenExpanded?(this.state.isTerminalExtended ? "terminal-body-expanded" : "terminal-body-collapsed"):"terminal-default") + " terminal-body"}>
         <span className={this.state.hasBeenCleared?"hide":""}>Type "help" for a list of commands</span>
           {this.state.enteredCommands.map((command, index) => (
             <div className="command-output" key={index}>
               {this.evaluateInput(command)}
             </div>
           ))}
-          <Input id="terminal-input" autoFocus={true} ref={this.inputElement} icon="angle right" iconPosition="left" fluid={true} value={this.state.currentInput} onChange={this.handleChange} onKeyPress={this.handleKeyPress} className="terminal-input" transparent={true} placeholder="input command here" />
+          <Input id="terminal-input" autoFocus={!this.props.expandToFit} ref={this.inputElement} icon="angle right" iconPosition="left" fluid={true} value={this.state.currentInput} onChange={this.handleChange} onKeyPress={this.handleKeyPress} className="terminal-input" transparent={true} placeholder="input command here" />
         </Segment>
-        {expandButton}
+        {/* {expandButton} */}
       </Container>
     );
   }

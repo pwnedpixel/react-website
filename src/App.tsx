@@ -7,14 +7,15 @@ import Links from './components/links/links';
 
 const App = () => (
   <div className="App">
-    <Header className="app-header" as='h1'>
-      Andy Terminal
-    </Header>
-    <Terminal />
-    <Header className="app-header" as='h1'>
-      Links
+  <Header className="app-header" as='h1'>
+      Andrew K
     </Header>
     <Links />
+    <Header className="app-header" as='h1'>
+      Resume
+    </Header>
+    <Terminal commands={["resume"]} expandToFit={true}/>
+    
   </div>
 );
 
